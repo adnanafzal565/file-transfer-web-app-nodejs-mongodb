@@ -1,5 +1,7 @@
 # File Transfer Web App (Node JS + Mongo DB) – Express
 
+![File transfer web app in NodeJS and MongoDB](https://adnan-tech.com/uploads/file-transfer-web-app-node-js-mongo-db-express.png)
+
 ## Introduction
 
 We have created a project "File transfer web app" we created in Node JS and Mongo DB. It is a file transferring web app that allows you to send files to your colleagues, friends, clients, etc.
