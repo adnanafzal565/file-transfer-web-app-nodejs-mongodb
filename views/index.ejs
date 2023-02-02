@@ -1,0 +1,260 @@
+<%- include ("includes/header") %>
+
+<div id="homeApp" style="margin-bottom: 80px;">
+    <div class="container" id="features">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>File Transfer Web App</h1>
+                <p>Node JS and Mongo DB</p>
+
+                <a v-bind:href="mainURL + '/MyUploads'">Get Started</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/nodejs-icon.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Node JS</h4>
+                        <p>Backend is developed in Node JS for efficient performance and realtime files editing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/mongodb-icon.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Mongo DB</h4>
+                        <p>We are using Mongo DB as a database for flexible data schemes, change-friendly design, easy horizontal scale-out and high performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/expressjs.svg'" style="width: 100px;" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Express JS</h4>
+                        <p>Express framework has been used for flexibility, non-blocking I/O operations, realtime communication and APIs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/socket-io.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Socket IO</h4>
+                        <p>Socket IO for bi-directional and event-based communication between client and server. Web sockets are faster than HTTP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/compression.png'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Image Compression</h4>
+                        <p>You can compress your images during upload without losing the quality. So you can have more space and thus be able to upload more files.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/share.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Share Files</h4>
+                        <p>Share files privately or publicly. Publicly shared files can be downloaded by anyone. But a privately shared file will only be downloaded by the person shared with.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/collaboration.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Realtime Collaboration</h4>
+                        <p>When someone updates a file you shared, it will be displayed on your side in realtime. You do not have to refresh the page to see the changes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/paypal.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>PayPal</h4>
+                        <p>Receive payments from your users securely using PayPal in your account directly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/stripe.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Stripe</h4>
+                        <p>You can also receive payments from your users using Stripe for accepting wide variety of payment methods and currencies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/blogging.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Blog</h4>
+                        <p>Share updates about your company, latest news or your knowledge to keep users coming back to your site regularly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="counterContainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>6154</h4>
+                    <p>Lines of Code</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>11</h4>
+                    <p>Premium Features</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>1 GB</h4>
+                    <p>Free storage</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="pricing">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Pricing</h2>
+                <br />
+                <p>Get the premium version in affordable and reasonable price.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-2 col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">$0</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <ul>
+                            <li>Login and Registration</li>
+                            <li>Upload Files</li>
+                            <li>Download Files</li>
+                            <li>Delete Files</li>
+                            <li>Share Files publicly via Link</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">$20</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <ul>
+                            <li>Login and Registration</li>
+                            <li>Email Verification</li>
+                            <li>Reset Password</li>
+                            <li>Upload Files</li>
+                            <li>Create Folders</li>
+                            <li>Download Files</li>
+                            <li>Delete Files</li>
+                            <li>Private File Sharing</li>
+                            <li>Rename Files & Folders</li>
+                            <li>Move Files</li>
+                            <li>Search Files</li>
+                            <li>Share Files publicly via Link</li>
+                            <li>Stripe and PayPal payment methods</li>
+                            <li>Blog Integration</li>
+                            <li>Image Compression</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Buy Now</h2>
+                    <br />
+                    <p style="font-size: 20px;">Get the premium version with all the features mentioned above. Customer support is also included in the premium version. <br /> All payments are handled securely.</p>
+
+                    <a href="https://chatting.page/kapdevnmnkvcubnn6z7zpiatypsbunjr" target="_blank" class="btn btn-success" style="margin-top: 30px;">
+                        Contact us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const homeApp = Vue.createApp({
+        data() {
+            return {
+                mainURL: baseUrl,
+            }
+        }
+    });
+    homeApp.mount("#homeApp");
+</script>
+
+<%- include ("includes/footer") %>

@@ -1,0 +1,403 @@
+<%- include ("includes/header") %>
+
+<style>
+    /* Create three columns of equal width */
+.columns {
+  /*float: left;*/
+  /*width: 33.3%;*/
+  padding: 8px;
+}
+
+/* Style the list */
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* Add shadows on hover */
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+/* Pricing header */
+.price .header {
+  background-color: #111;
+  color: white;
+  font-size: 25px;
+}
+
+/* List items */
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Grey list item */
+.price .grey {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+/* The "Sign Up" button */
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Change the width of the three columns to 100%
+(to stack horizontally on small screens) */
+@media only screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+  }
+}
+
+.link-modal {
+  text-decoration: underline !important;
+}
+.link-modal:hover {
+  text-decoration: none !important;
+}
+
+.pricing-table,
+.pricing-table th,
+.pricing-table td {
+  border: 1px solid #dee2e6 !important;
+  border-collapse: collapse;
+  text-align: center;
+}
+.pricing-table thead th {
+  color: white !important;
+}
+
+/*td:nth-child(2) .fa-check {
+  color: #111;
+}
+td:nth-child(3) .fa-check {
+  color: #088dcd;
+}
+td:nth-child(4) .fa-check {
+  color: #40c016;
+}*/
+.fa-check {
+  color: #3fff00;
+}
+.fa-close {
+  color: red;
+}
+</style>
+
+<section class="premium-section">
+    <div class="gap white-bg">
+
+        <!-- File Transfer Web App in Node JS and Mongo DB
+
+        1) Login and Registration
+        2) Email Verification
+        3) Reset Password
+        4) Upload Files
+        5) Create Nested Folders
+        6) Download Files
+        7) Delete Files
+        8) Private File Sharing
+        9) Rename Files and Folders
+        10) Move File from one Folder to another
+        11) Search Files
+        13) Share Files publicly via Link
+        14) Stripe and PayPal payment methods -->
+
+        <div class="container-fluid" style="margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;">
+          <div class="demo10">
+              <div class="container">
+                  <!-- <h2 class="py-4 text-center">Pricing Table</h2> -->
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="pricingTable10">
+                              <div class="pricingTable-header">
+                                  <h3 class="heading">Free</h3>
+                                  <span class="price-value">
+                                  <span class="currency">$</span> 0
+                                  </span>
+                              </div>
+                              <div class="pricing-content">
+                                  <ul>
+                                      <li>Login and Registration</li>
+                                      <li>Upload Files</li>
+                                      <li>Download Files</li>
+                                      <li>Delete Files</li>
+                                      <li>Share Files publicly via Link</li>
+                                      <li><del>Email Verification</del></li>
+                                      <li><del>Reset Password</del></li>
+                                      <li><del>Create Folders</del></li>
+                                      <li><del>Private File Sharing</del></li>
+                                      <li><del>Rename Files & Folders</del></li>
+                                      <li><del>Move Files</del></li>
+                                      <li><del>Search Files</del></li>
+                                      <li><del>Stripe and PayPal payment methods</del></li>
+                                      <li><del>Blog Integration</del></li>
+                                      <li><del>Image Compression</del></li>
+                                  </ul>
+                                  <a href="javascript:void(0);" class="read">Lines of Code = 566</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="pricingTable10">
+                              <div class="pricingTable-header">
+                                  <h3 class="heading">Premium</h3>
+                                  <span class="price-value">
+                                  <span class="currency">$</span> 20
+                                  </span>
+                              </div>
+                              <div class="pricing-content">
+                                  <ul>
+                                      <li>Login and Registration</li>
+                                      <li>Email Verification</li>
+                                      <li>Reset Password</li>
+                                      <li>Upload Files</li>
+                                      <li>Create Folders</li>
+                                      <li>Download Files</li>
+                                      <li>Delete Files</li>
+                                      <li>Private File Sharing</li>
+                                      <li>Rename Files & Folders</li>
+                                      <li>Move Files</li>
+                                      <li>Search Files</li>
+                                      <li>Share Files publicly via Link</li>
+                                      <li>
+                                        <a href="javascript:void(0);" onclick="ondemoClicked(this);" data-href="stripePaypal">
+                                          Stripe and PayPal payment methods
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a href="javascript:void(0);" onclick="ondemoClicked(this);" data-href="blog">
+                                          Blog Integration
+                                        </a>
+                                      </li>
+
+                                      <li>Image Compression</li>
+                                  </ul>
+                                  <a href="javascript:void(0);" class="read">Lines of Code = 6154</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+        <style>
+          del {
+            font-weight: normal;
+            color: lightgray;
+          }
+          .demo10{
+              /*background:#C0BFBF;*/
+              padding:30px 0
+          }
+           .pricingTable10{
+              text-align:center;
+              border: 1px solid #C0BFBF;
+          }
+           .pricingTable10 .pricingTable-header{
+              padding:30px 0;
+              background:#4d4d4d;
+              position:relative;
+              transition:all .3s ease 0s
+          }
+           .pricingTable10:hover .pricingTable-header{
+              background:#09b2c6
+          }
+           .pricingTable10 .pricingTable-header:after,.pricingTable10 .pricingTable-header:before{
+              content:"";
+              width:16px;
+              height:16px;
+              border-radius:50%;
+              border:1px solid #d9d9d8;
+              position:absolute;
+              bottom:12px
+          }
+           .pricingTable10 .pricingTable-header:before{
+              left:40px
+          }
+           .pricingTable10 .pricingTable-header:after{
+              right:40px
+          }
+           .pricingTable10 .heading{
+              font-size:20px;
+              color:#fff;
+              text-transform:uppercase;
+              letter-spacing:2px;
+              margin-top:0
+          }
+           .pricingTable10 .price-value{
+              display:inline-block;
+              position:relative;
+              font-size:55px;
+              font-weight:700;
+              color:#09b1c5;
+              transition:all .3s ease 0s
+          }
+           .pricingTable10:hover .price-value{
+              color:#fff
+          }
+           .pricingTable10 .currency{
+              font-size:30px;
+              font-weight:700;
+              position:absolute;
+              top:6px;
+              left:-19px
+          }
+           .pricingTable10 .month{
+              font-size:16px;
+              color:#fff;
+              position:absolute;
+              bottom:15px;
+              /*right:-30px;*/
+              text-transform:uppercase
+          }
+           .pricingTable10 .pricing-content{
+              padding-top:50px;
+              background:#fff;
+              position:relative
+          }
+           .pricingTable10 .pricing-content:after,.pricingTable10 .pricing-content:before{
+              content:"";
+              width:16px;
+              height:16px;
+              border-radius:50%;
+              border:1px solid #7c7c7c;
+              position:absolute;
+              top:12px
+          }
+           .pricingTable10 .pricing-content:before{
+              left:40px
+          }
+           .pricingTable10 .pricing-content:after{
+              right:40px
+          }
+           .pricingTable10 .pricing-content ul{
+              padding:0 20px;
+              margin:0;
+              list-style:none
+          }
+           .pricingTable10 .pricing-content ul:after,.pricingTable10 .pricing-content ul:before{
+              content:"";
+              width:8px;
+              height:46px;
+              border-radius:3px;
+              background:linear-gradient(to bottom,#818282 50%,#727373 50%);
+              position:absolute;
+              top:-22px;
+              z-index:1;
+              box-shadow:0 0 5px #707070;
+              transition:all .3s ease 0s
+          }
+           .pricingTable10:hover .pricing-content ul:after,.pricingTable10:hover .pricing-content ul:before{
+              background:linear-gradient(to bottom,#40c4db 50%,#34bacc 50%)
+          }
+           .pricingTable10 .pricing-content ul:before{
+              left:44px
+          }
+           .pricingTable10 .pricing-content ul:after{
+              right:44px
+          }
+           .pricingTable10 .pricing-content ul li{
+              font-size:15px;
+              font-weight:700;
+              color:#777473;
+              padding:10px 0;
+              border-bottom:1px solid #d9d9d8
+          }
+           .pricingTable10 .pricing-content ul li:last-child{
+              border-bottom:none
+          }
+           .pricingTable10 .read{
+              display:inline-block;
+              font-size:16px;
+              color:#fff;
+              text-transform:uppercase;
+              background:#d9d9d8;
+              padding:8px 25px;
+              margin:30px 0;
+              transition:all .3s ease 0s
+          }
+           .pricingTable10 .read:hover{
+              text-decoration:none
+          }
+           .pricingTable10:hover .read{
+              background:#09b1c5
+          }
+           @media screen and (max-width:990px){
+              .pricingTable10{
+                  margin-bottom:25px
+              }
+          }
+          /* Credit to https://bootsnipp.com/snippets/92erW */
+        </style>
+
+        <div class="container" style="margin-bottom: 50px;">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="https://chatting.page/kapdevnmnkvcubnn6z7zpiatypsbunjr" target="_blank"style="color: black;">
+                      Contact us <i class="fa fa-users"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+  .btn-buy:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  function ondemoClicked(self) {
+    var value = self.getAttribute("data-href");
+    
+    if (value == "stripePaypal") {
+      document.querySelector("#demoModal .modal-title").innerHTML = "Stripe and PayPal";
+      document.querySelector("#demoModal .modal-body iframe").setAttribute("src", "https://www.youtube.com/embed/9rQmU9Vd-JE");
+    }
+
+    if (value == "blog") {
+      document.querySelector("#demoModal .modal-title").innerHTML = "Blog Integration";
+      document.querySelector("#demoModal .modal-body iframe").setAttribute("src", "https://www.youtube.com/embed/Ck715XO14xo");
+    }
+
+    $("#demoModal").modal("show");
+  }
+</script>
+
+<div class="modal" id="demoModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ("includes/footer") %>

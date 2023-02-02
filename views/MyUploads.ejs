@@ -1,0 +1,146 @@
+<%- include ("includes/header", {
+   "title": "My Uploads"
+}) %>
+
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <%- include ("includes/ResponseAlert", {
+        "request": request
+    }) %>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h1>My Uploads</h1>
+        </div>
+
+        <div class="col-md-4">
+            <a href="javascript:void(0);" class="btn btn-primary" onclick="selectFileForUpload();">Upload</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <%
+            uploaded.forEach(function (singleFile) {
+        %>
+            <div class="col-md-4" style="margin-top: 30px;">
+
+                <div class="card">
+                    <div class="card-body" style="font-size: 100px; text-align: center; height: 300px;">
+                        <i class="fa fa-file-text-o"></i>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>
+                                    <a href="javascript:void(0);"
+                                        onclick="viewFile(this);"
+                                        data-id="<%= singleFile._id %>"
+                                        data-name="<%= singleFile.name %>"
+                                        data-type="<%= singleFile.type %>">
+                                        <%= singleFile.name.substring(0, 20) %>
+
+                                        <%= (singleFile.name.length > 20) ? "..." : "" %>
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
+
+<form method="POST" action="<%= request.mainURL %>/UploadFile" enctype="multipart/form-data" id="form-upload-file">
+    <input type="hidden" name="_id" value="" />
+    <input type="file" name="file" id="input-file-upload" style="display: none;" onchange="confirmUpload();" required />
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="viewFileModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                <form method="POST" action="<%= request.mainURL %>/ShareViaLink" id="form-share-via-link" style="display: contents;">
+                    <input type="hidden" name="_id" required />
+                </form>
+
+                <button type="button" class="btn btn-primary" onclick="shareViaLink();">
+                    Share via link
+                </button>
+
+                <script>
+                    function shareViaLink() {
+                        if (confirm("Generate shareable link ?")) {
+                            document.getElementById("form-share-via-link").submit();
+                        }
+                    }
+                </script>
+
+                <form method="POST" action="<%= request.mainURL %>/DeleteFile"
+                    id="form-delete-file">
+                    <input type="hidden" name="_id" required />
+
+                    <button type="button" class="btn btn-danger"
+                        onclick="confirmDeleteFile(this);">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function selectFileForUpload() {
+        document.getElementById("input-file-upload").click();
+    }
+
+    function confirmUpload() {
+
+        swal({
+            title: "Are you sure?",
+            text: "Upload the selected file to the server ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(function(isOkay) {
+                if (isOkay) {
+                    document.getElementById("form-upload-file").submit();
+                }
+            });
+    }
+
+    function viewFile(self) {
+        var _id = self.getAttribute("data-id");
+        var name = self.getAttribute("data-name");
+        var type = self.getAttribute("data-type");
+
+        document.querySelector("#viewFileModal .modal-title").innerHTML = name;
+
+        var modalBodyHtml = "";
+        modalBodyHtml += "<button type='button' class='btn btn-success' onclick='downloadFile(this);' data-id='" + _id + "'>Download</button>";
+        document.querySelector("#viewFileModal .modal-body").innerHTML = modalBodyHtml;
+        $("#viewFileModal").modal("show");
+
+        document.getElementById("form-delete-file")._id.value = _id;
+        document.getElementById("form-share-via-link")._id.value = _id;
+    }
+</script>
+
+<%- include ("includes/footer") %>

@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu-Bold";
+    src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf");
+}
+
+body {
+    font-family: "Ubuntu";
+}
+
+#cta {
+    margin-top: 50px;
+    background-color: #2487ce;
+    padding-top: 1px;
+    padding-bottom: 50px;
+    color: white;
+}
+#pricing .card-body ul {
+    height: 210px;
+    overflow-y: scroll;
+}
+#pricing .card-body ul,
+#pricing .card-body {
+    padding: 0px;
+}
+#pricing .card-body {
+    height: 210px;
+}
+#pricing .card-body ul li {
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+}
+#pricing .card-body ul {
+    list-style: none;
+}
+#pricing .card-header {
+    background-color: #20b1a9;
+    color: white;
+}
+#counterContainer .col-md-4 p,
+#counterContainer .col-md-4 h4 {
+    text-align: center;
+}
+#counterContainer .col-md-4 h4 {
+    color: #124265;
+    font-family: "Ubuntu-Bold";
+    font-size: 50px;
+}
+#counterContainer {
+    background-color: #ecf3fb;
+    padding-top: 15px;
+    padding-bottom: 40px;
+    margin-top: 50px;
+}
+#homeApp #features .card-body {
+    height: 200px;
+}
+#homeApp .card-header img {
+    width: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#homeApp .card-body h4 {
+    margin-bottom: 20px;
+}
+#homeApp h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #124265;
+    font-family: Ubuntu-Bold;
+}
+#homeApp .row {
+    margin-top: 50px;
+}
+
+.premium {
+    color: darkcyan;
+    font-size: 12px;
+    position: absolute;
+    top: 28px;
+    right: 36px;
+}

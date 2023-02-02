@@ -1,0 +1,32 @@
+<style>
+    #link-pro-version {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 25px;
+        font-size: 20px;
+    }
+    #link-pro-version a {
+        color: #68ac00 !important;
+        text-decoration: underline !important;
+    }
+    #link-pro-version a:hover {
+        text-decoration: none !important;
+    }
+    </style>
+
+<div class="footer fixed-bottom" id="link-pro-version" style="display: none;">
+    This is a free version. Please check all the features in the <a href="<%= request.mainURL %>/pro-versions">premium version</a>.
+</div>
+
+<script>
+    window.addEventListener("load", function () {
+        if (window.location.pathname.search("pro-versions") == -1) {
+            document.getElementById("link-pro-version").style.display = "";
+        }
+    });
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= typeof title == "undefined" ? "Home" : title %></title>
+
+        <link rel="stylesheet" href="<%= request.mainURL %>/public/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="<%= request.mainURL %>/public/font-awesome-4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="<%= request.mainURL %>/public/css/style.css" />
+        
+        <script src="<%= request.mainURL %>/public/js/vue.global.js"></script>
+
+    </head>
+
+    <body>
+
+        <input type="hidden" id="base-url" value="<%= request.mainURL %>" />
+
+        <script>
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const baseUrl = document.getElementById("base-url").value;
+        </script>
+
+        <%
+
+            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            formatBytes = function(bytes, decimals = 2) {
+                if (bytes === 0) return '0 Bytes';
+
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            };
+        %>
+
+        <!-- top nav bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="<%= request.mainURL %>">File Transfer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<%= request.mainURL %>">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.mainURL %>/MyUploads">My Uploads</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.mainURL %>/SharedWithMe" style="position: relative;">Shared with me <span class="premium">**premium</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.mainURL %>/MySharedLinks">My shared links</a>
+                    </li>
+
+                    <% if (request.isLogin) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= request.session.user.name %>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<%= request.mainURL %>/Logout">Log out</a>
+                            </div>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%= request.mainURL %>/Login">Login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%= request.mainURL %>/Register">Register</a>
+                        </li>
+                    <% } %>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.mainURL %>/Blog" style="position: relative;">Blog <span class="premium" style="right: -3px;">**premium</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.mainURL %>/Admin" style="position: relative;">Admin Panel <span class="premium" style="left: 21px;">**premium</span></a>
+                    </li>
+                </ul>
+
+                <!-- search field -->
+                <form class="form-inline my-2 my-lg-0" method="GET" action="<%= request.mainURL %>/Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" value="<%= request.query.search %>" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>

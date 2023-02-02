@@ -1,0 +1,32 @@
+<%- include ("includes/header", {
+   "title": "Shared via link"
+}) %>
+
+<div class="container" style="margin-top: 50px;">
+
+    <%- include ("includes/ResponseAlert", {
+        "request": request
+    }) %>
+
+    <% if (typeof link !== "undefined") { %>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+
+                    <i style="font-size: 100px;" class="fa fa-file-text-o"></i>
+                    <h1><%= link.file.name %></h1>
+
+                    <br />
+
+                    <button type="button"
+                        class="btn btn-success"
+                        onclick="downloadFile(this);"
+                        data-id="<%= link.file._id %>">Download</button>
+
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include ("includes/footer") %>

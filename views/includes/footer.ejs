@@ -1,0 +1,92 @@
+        <%- include ("pro-version") %>
+
+        <!-- include necessary JS files -->
+        <script src="<%= request.mainURL %>/public/js/jquery-3.3.1.min.js"></script>
+        <script src="<%= request.mainURL %>/public/js/popper.min.js"></script>
+        <script src="<%= request.mainURL %>/public/js/bootstrap.min.js"></script>
+        <script src="<%= request.mainURL %>/public/js/sweetalert.min.js"></script>
+
+        <script>
+            function confirmDeleteFile(form) {
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then(function(willDelete) {
+                    if (willDelete) {
+                        document.getElementById("form-delete-file").submit();
+                    }
+                });
+            }
+            
+            // send the request to server to download the file
+            function downloadFile(self) {
+                var _id = self.getAttribute("data-id");
+
+                self.innerHTML = "Loading...";
+                self.setAttribute("disabled", "disabled");
+
+                var ajax = new XMLHttpRequest();
+                ajax.open("POST", document.getElementById("base-url").value + "/DownloadFile", true);
+
+                ajax.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            // console.log(this.responseText);
+                            var data = JSON.parse(this.responseText);
+                            // console.log(data);
+
+                            self.removeAttribute("disabled");
+                            self.innerHTML = "Download";
+
+                            if (data.status == "error") {
+                                swal("Error", data.message, "error");
+                            }
+
+                            if (data.status == "success") {
+
+                                // response will be a buffer array
+                                // convert that into base64
+
+                                var binary = '';
+                                var bytes = new Uint8Array( data.arrayBuffer.data );
+                                var len = bytes.byteLength;
+                                for (var i = 0; i < len; i++) {
+                                    binary += String.fromCharCode( bytes[ i ] );
+                                }
+                                var base64 = window.btoa( binary );
+                                base64 = "data:" + data.fileType + ";base64," + base64;
+                                // console.log(base64);
+
+                                // download the file
+                                const fileName = data.fileName;
+                                const link = document.createElement('a');
+                                // Browsers that support HTML5 download attribute
+                                if (link.download !== undefined) {
+                                    link.setAttribute("href", base64);
+                                    link.setAttribute('download', fileName);
+                                    link.style.visibility = 'hidden';
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                }
+                            }
+                        }
+
+                        if (this.status == 500) {
+                            console.log(this.responseText);
+                        }
+                    }
+                };
+
+                var formData = new FormData();
+                formData.append("_id", _id);
+                ajax.send(formData);
+            }
+        </script>
+
+    </body>
+</html>
